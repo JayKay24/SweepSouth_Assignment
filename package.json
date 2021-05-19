@@ -1,0 +1,25 @@
+{
+  "name": "SweepSouth_Assignment",
+  "version": "1.0.0",
+  "description": "A simple Next.js application that consumes an API",
+  "main": "index.js",
+  "scripts": {
+    "start": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayKay24/SweepSouth_Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayKay24/SweepSouth_Assignment/issues"
+  },
+  "homepage": "https://github.com/JayKay24/SweepSouth_Assignment#readme",
+  "dependencies": {
+    "next": "^10.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
