@@ -1,16 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { RandomUsersContext } from "../pages/index";
 
-const Search = ({ onSearch }) => {
+const Search = () => {
+  const [text, setText] = useState("");
   const { onSearch } = useContext(RandomUsersContext);
+
+  const handleSearch = () => {
+    onSearch(text);
+  };
+
   return (
     <span className="nav-right">
       <input
         id="search"
         type="text"
         placeholder="Search..."
-        onChange={onSearch}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
+      <button className="nav-search" onClick={handleSearch}>
+        Search
+      </button>
     </span>
   );
 };

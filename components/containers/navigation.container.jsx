@@ -9,6 +9,12 @@ const NavigationContainer = styled.nav`
 
     &.nav-right {
       margin-left: auto;
+      margin-right: 2rem;
+
+      > .nav-search {
+        display: inline-block;
+        margin-left: 1rem;
+      }
     }
   }
 
