@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { RandomUsersContext } from "../../pages/index";
+import { useContext } from "react";
+import { RandomUsersContext } from "../../pages/_app";
 
 const ProfileQuantity = () => {
   const { setnumProfiles, numProfiles } = useContext(RandomUsersContext);

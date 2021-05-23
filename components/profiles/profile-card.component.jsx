@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
 import Router from "next/router";
 import ProfileCardContainer from "../containers/profile-card.container";
+import { RandomUsersContext } from "../../pages/_app";
 
 const ProfileCard = ({ profile }) => {
   const {
@@ -9,9 +10,12 @@ const ProfileCard = ({ profile }) => {
     name: { title, first, last },
   } = profile;
 
+  const { setSelectedProfile } = useContext(RandomUsersContext);
+
   const handleNavigateToUser = () => {
+    setSelectedProfile(profile);
     Router.push(
-      "/profile-details-[profileId]",
+      "/profile-details-[profileId].component",
       `/profile-details-${first}-${last}`
     );
   };

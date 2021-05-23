@@ -1,65 +1,14 @@
-import React, { useReducer, useEffect, useState } from "react";
+import { useContext } from "react";
+import Pagination from "react-js-pagination";
 
-import { ActionNames } from "../reducers/actions";
-import { profilesReducer } from "../reducers/reducers";
-
-import AppContainer from "../components/containers/App.container";
-import NavBar from "../components/navigation.component";
 import ProfilesContainer from "../components/containers/profiles.container";
 import ProfileCard from "../components/profiles/profile-card.component";
-
-export const RandomUsersContext = React.createContext();
+import PaginationContainer from "../components/containers/pagination-container";
+import { RandomUsersContext } from "./_app";
 
 const LandingPage = () => {
-  const [profiles, dispatchProfiles] = useReducer(profilesReducer, []);
-  const [searchValue, setSearchValue] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [numProfiles, setnumProfiles] = useState(3);
-
-  const onSearch = (searchValue) => {
-    setSearchValue(searchValue);
-    if (searchValue) {
-      const newProfiles = profiles.filter((profile) => {
-        if (
-          profile.name.title === searchValue ||
-          profile.name.first === searchValue ||
-          profile.name.last === searchValue
-        ) {
-          return profile;
-        }
-      });
-
-      dispatchProfiles({
-        type: ActionNames.SET_PROFILES,
-        payload: newProfiles,
-      });
-    }
-  };
-
-  useEffect(() => {
-    const fetchUserProfiles = async () => {
-      if (searchValue.length === 0) {
-        try {
-          setIsLoading(true);
-          const res = await fetch(
-            `https://randomuser.me/api/?results=${Number(numProfiles)}`
-          );
-          const { results } = await res.json();
-          dispatchProfiles({
-            type: ActionNames.SET_PROFILES,
-            payload: [...results],
-          });
-        } catch (error) {
-          console.error(error);
-          dispatchProfiles({ type: ActionNames.SET_PROFILES, payload: [] });
-        } finally {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    fetchUserProfiles();
-  }, [searchValue, numProfiles]);
+  const { profiles, isLoading, pages, setPages, numProfiles } =
+    useContext(RandomUsersContext);
 
   const renderProfiles = (profiles) => (
     <ProfilesContainer>
@@ -69,24 +18,26 @@ const LandingPage = () => {
     </ProfilesContainer>
   );
 
+  const handlePageChange = (pageNumber) => setPages(pageNumber);
+
   return (
-    <RandomUsersContext.Provider
-      value={{
-        profiles,
-        onSearch,
-        setIsLoading,
-        setnumProfiles,
-        numProfiles,
-      }}
-    >
-      <AppContainer>
-        <NavBar />
-        <h1>Random Users</h1>
-        <br />
-        {isLoading && <div>Loading...</div>}
-        {!isLoading && renderProfiles(profiles)}
-      </AppContainer>
-    </RandomUsersContext.Provider>
+    <>
+      {isLoading && <div>Loading...</div>}
+      {!isLoading && renderProfiles(profiles)}
+      {!isLoading && (
+        <PaginationContainer>
+          <Pagination
+            activePage={pages}
+            itemsCountPerPage={numProfiles}
+            pageRangeDisplayed={5}
+            totalItemsCount={numProfiles}
+            onChange={handlePageChange}
+            itemClass="page-item"
+            linkClass="page-link"
+          />
+        </PaginationContainer>
+      )}
+    </>
   );
 };
 
