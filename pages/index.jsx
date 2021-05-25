@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import Pagination from "react-js-pagination";
 
 import ProfilesContainer from "../components/containers/profiles.container";
 import ProfileCard from "../components/profiles/profile-card.component";
-import PaginationContainer from "../components/containers/pagination-container";
 import { RandomUsersContext } from "./_app";
 
 const LandingPage = () => {
@@ -28,19 +26,6 @@ const LandingPage = () => {
     <>
       {isLoading && <div>Loading...</div>}
       {!isLoading && renderProfiles(profiles)}
-      {/* {!isLoading && (
-        <PaginationContainer>
-          <Pagination
-            activePage={pages}
-            itemsCountPerPage={numProfiles}
-            pageRangeDisplayed={5}
-            totalItemsCount={50}
-            onChange={handlePageChange}
-            itemClass="page-item"
-            linkClass="page-link"
-          />
-        </PaginationContainer>
-      )} */}
     </>
   );
 };

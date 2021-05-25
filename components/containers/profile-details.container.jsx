@@ -6,11 +6,9 @@ const ProfileDetailsContainer = styled.div`
   min-width: 550px;
   padding: 10px;
   width: 60%;
-
   > .avatar {
     text-align: center;
   }
-
   > .json-output {
     > pre {
       background-color: #dadde1;
