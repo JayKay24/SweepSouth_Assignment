@@ -18,7 +18,8 @@ const ProfileDetails = () => {
           </h4>
           <img src={large} alt="avatar" />
         </div>
-        <code>
+        <br />
+        <code className="json-output">
           <pre>{JSON.stringify(profile, null, 2)}</pre>
         </code>
       </>

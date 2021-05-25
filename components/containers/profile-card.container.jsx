@@ -15,6 +15,10 @@ const ProfileCardContainer = styled.div`
   > .card-details {
     padding: 2px 16px;
   }
+
+  h4 {
+    font-size: 1.5em;
+  }
 `;
 
 export default ProfileCardContainer;

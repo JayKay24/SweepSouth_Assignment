@@ -4,7 +4,8 @@
   "description": "A simple Next.js application that consumes an API",
   "main": "index.js",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,27 @@
   },
   "homepage": "https://github.com/JayKay24/SweepSouth_Assignment#readme",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "bootstrap": "^4.4.1",
     "next": "^10.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-js-pagination": "^3.0.3",
     "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@testing-library/dom": "^7.31.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "babel-jest": "^26.6.3",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "jest-dom": "^4.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-middleware": "^4.3.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

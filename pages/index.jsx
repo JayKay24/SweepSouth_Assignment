@@ -10,13 +10,17 @@ const LandingPage = () => {
   const { profiles, isLoading, pages, setPages, numProfiles } =
     useContext(RandomUsersContext);
 
-  const renderProfiles = (profiles) => (
-    <ProfilesContainer>
-      {profiles.map((profile) => (
-        <ProfileCard key={profile.cell} profile={profile} />
-      ))}
-    </ProfilesContainer>
-  );
+  const renderProfiles = (profiles) => {
+    if (profiles.length === 0) {
+      return <div>No profiles to display...</div>;
+    } else {
+      <ProfilesContainer>
+        {profiles.map((profile) => (
+          <ProfileCard key={profile.cell} profile={profile} />
+        ))}
+      </ProfilesContainer>;
+    }
+  };
 
   const handlePageChange = (pageNumber) => setPages(pageNumber);
 
@@ -24,19 +28,19 @@ const LandingPage = () => {
     <>
       {isLoading && <div>Loading...</div>}
       {!isLoading && renderProfiles(profiles)}
-      {!isLoading && (
+      {/* {!isLoading && (
         <PaginationContainer>
           <Pagination
             activePage={pages}
             itemsCountPerPage={numProfiles}
             pageRangeDisplayed={5}
-            totalItemsCount={numProfiles}
+            totalItemsCount={50}
             onChange={handlePageChange}
             itemClass="page-item"
             linkClass="page-link"
           />
         </PaginationContainer>
-      )}
+      )} */}
     </>
   );
 };

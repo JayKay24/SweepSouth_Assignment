@@ -21,19 +21,9 @@ const App = ({ Component, pageProps }) => {
   const onSearch = (searchValue) => {
     setSearchValue(searchValue);
     if (searchValue) {
-      const newProfiles = profiles.filter((profile) => {
-        if (
-          profile.name.title === searchValue ||
-          profile.name.first === searchValue ||
-          profile.name.last === searchValue
-        ) {
-          return profile;
-        }
-      });
-
       dispatchProfiles({
-        type: ActionNames.SET_PROFILES,
-        payload: newProfiles,
+        type: ActionNames.FILTER_PROFILE_BY_NAME,
+        payload: searchValue,
       });
 
       Router.push("/");
@@ -51,6 +41,7 @@ const App = ({ Component, pageProps }) => {
             )}`
           );
           const { results } = await res.json();
+          console.log(results);
           dispatchProfiles({
             type: ActionNames.SET_PROFILES,
             payload: [...results],
@@ -65,7 +56,7 @@ const App = ({ Component, pageProps }) => {
     };
 
     fetchUserProfiles();
-  }, [searchValue]);
+  }, [searchValue, numProfiles]);
 
   return (
     <RandomUsersContext.Provider
@@ -85,6 +76,7 @@ const App = ({ Component, pageProps }) => {
       <AppContainer>
         <NavBar />
         <h1>Random Users</h1>
+        <hr />
         <br />
         <div className="container">
           <Component {...pageProps} />

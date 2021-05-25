@@ -1,3 +1,4 @@
 export const ActionNames = {
   SET_PROFILES: "SET_PROFILES",
+  FILTER_PROFILE_BY_NAME: "FILTER_PROFILE_BY_NAME",
 };
