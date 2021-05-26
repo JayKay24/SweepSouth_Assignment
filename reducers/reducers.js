@@ -10,14 +10,29 @@ const profilesReducer = (state, action) => {
         const {
           name: { title, first, last },
         } = profile;
+        const lowerCasePayload = action.payload.toLowerCase();
         if (
-          title === action.payload ||
-          first === action.payload ||
-          last === action.payload
+          title.toLowerCase().indexOf(lowerCasePayload) >= 0 ||
+          first.toLowerCase().indexOf(lowerCasePayload) >= 0 ||
+          last.toLowerCase().indexOf(lowerCasePayload) >= 0
         ) {
           return profile;
         }
       });
+    }
+    case ActionNames.SORT_PROFILES: {
+      if (!action.payload) return state;
+
+      const stateToSort = [...state];
+      const sortCriteria = action.payload;
+
+      stateToSort.sort((a, b) =>
+        ("" + a["name"][sortCriteria]).localeCompare(
+          "" + b["name"][sortCriteria]
+        )
+      );
+
+      return stateToSort;
     }
     default: {
       return state;

@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { RandomUsersContext } from "../pages/_app";
 
 const Search = () => {
-  const [text, setText] = useState("");
   const { onSearch } = useContext(RandomUsersContext);
 
-  const handleSearch = () => {
-    onSearch(text);
+  const handleSearch = (e) => {
+    onSearch(e.target.value);
   };
 
   return (
@@ -15,12 +14,8 @@ const Search = () => {
         id="search"
         type="text"
         placeholder="Search..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleSearch}
       />
-      <button className="nav-search btn btn-primary" onClick={handleSearch}>
-        Search
-      </button>
     </span>
   );
 };

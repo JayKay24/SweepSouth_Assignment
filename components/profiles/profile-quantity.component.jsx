@@ -5,16 +5,19 @@ const ProfileQuantity = () => {
   const { setnumProfiles, numProfiles } = useContext(RandomUsersContext);
 
   return (
-    <span className="nav-right">
-      Profiles returned:&nbsp;
-      <input
-        type="number"
-        onChange={(e) => setnumProfiles(e.target.value)}
-        min="3"
-        max="50"
-        value={numProfiles}
-      />
-    </span>
+    <>
+      <span className="nav-right">
+        Profiles returned:&nbsp;
+        <input
+          id="search-input"
+          type="number"
+          onChange={(e) => setnumProfiles(e.target.value)}
+          min="3"
+          max="50"
+          value={numProfiles}
+        />
+      </span>
+    </>
   );
 };
 

@@ -12,14 +12,17 @@ export const RandomUsersContext = createContext();
 
 const App = ({ Component, pageProps }) => {
   const [profiles, dispatchProfiles] = useReducer(profilesReducer, []);
-  const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [numProfiles, setnumProfiles] = useState(3);
+  const [numProfiles, setnumProfiles] = useState(9);
   const [selectedProfile, setSelectedProfile] = useState({});
+  const [originalProfiles, setOriginalProfiles] = useState([]);
 
   const onSearch = (searchValue) => {
-    setSearchValue(searchValue);
     if (searchValue) {
+      dispatchProfiles({
+        type: ActionNames.SET_PROFILES,
+        payload: [...originalProfiles],
+      });
       dispatchProfiles({
         type: ActionNames.FILTER_PROFILE_BY_NAME,
         payload: searchValue,
@@ -27,33 +30,38 @@ const App = ({ Component, pageProps }) => {
 
       Router.push("/");
     }
+    if (!searchValue) {
+      dispatchProfiles({
+        type: ActionNames.SET_PROFILES,
+        payload: [...originalProfiles],
+      });
+    }
   };
 
   useEffect(() => {
     const fetchUserProfiles = async () => {
-      if (searchValue.length === 0) {
-        try {
-          setIsLoading(true);
-          const res = await fetch(
-            `https://randomuser.me/api/?results=${Number(numProfiles)}`
-          );
-          const { results } = await res.json();
-          setIsLoading(false);
-          dispatchProfiles({
-            type: ActionNames.SET_PROFILES,
-            payload: [...results],
-          });
-        } catch (error) {
-          console.error(error);
-          dispatchProfiles({ type: ActionNames.SET_PROFILES, payload: [] });
-        } finally {
-          setIsLoading(false);
-        }
+      try {
+        setIsLoading(true);
+        const res = await fetch(
+          `https://randomuser.me/api/?results=${Number(numProfiles)}`
+        );
+        const { results } = await res.json();
+        setIsLoading(false);
+        dispatchProfiles({
+          type: ActionNames.SET_PROFILES,
+          payload: [...results],
+        });
+        setOriginalProfiles([...results]);
+      } catch (error) {
+        console.error(error);
+        dispatchProfiles({ type: ActionNames.SET_PROFILES, payload: [] });
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchUserProfiles();
-  }, [searchValue, numProfiles]);
+  }, [numProfiles]);
 
   return (
     <RandomUsersContext.Provider
@@ -66,11 +74,11 @@ const App = ({ Component, pageProps }) => {
         selectedProfile,
         setSelectedProfile,
         isLoading,
+        dispatchProfiles,
       }}
     >
       <AppContainer>
         <NavBar />
-        <h1>Random Users</h1>
         <hr />
         <br />
         <div className="container">
