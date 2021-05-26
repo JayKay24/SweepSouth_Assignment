@@ -16,7 +16,6 @@ const App = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [numProfiles, setnumProfiles] = useState(3);
   const [selectedProfile, setSelectedProfile] = useState({});
-  const [pages, setPages] = useState(1);
 
   const onSearch = (searchValue) => {
     setSearchValue(searchValue);
@@ -36,12 +35,10 @@ const App = ({ Component, pageProps }) => {
         try {
           setIsLoading(true);
           const res = await fetch(
-            `https://randomuser.me/api/?page=${pages}&results=${Number(
-              numProfiles
-            )}`
+            `https://randomuser.me/api/?results=${Number(numProfiles)}`
           );
           const { results } = await res.json();
-          console.log(results);
+          setIsLoading(false);
           dispatchProfiles({
             type: ActionNames.SET_PROFILES,
             payload: [...results],
@@ -69,8 +66,6 @@ const App = ({ Component, pageProps }) => {
         selectedProfile,
         setSelectedProfile,
         isLoading,
-        pages,
-        setPages,
       }}
     >
       <AppContainer>

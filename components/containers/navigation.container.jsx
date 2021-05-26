@@ -20,7 +20,8 @@ const NavigationContainer = styled.nav`
       }
     }
   }
-  > .home-link {
+
+  .home-link {
     color: white;
     display: inline-block;
     text-decoration: none;

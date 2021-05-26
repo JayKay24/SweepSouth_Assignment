@@ -6,8 +6,8 @@ import ProfileQuantity from "../components/profiles/profile-quantity.component";
 const NavBar = () => {
   return (
     <NavigationContainer className="navbar navbar-dark bg-dark">
-      <Link href="/" className="home-link navbar-brand">
-        <a>Home</a>
+      <Link href="/">
+        <a className="home-link navbar-brand">Home</a>
       </Link>
       <ProfileQuantity />
       <Search />
