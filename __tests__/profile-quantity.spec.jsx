@@ -14,6 +14,8 @@ describe("Home Page", () => {
       </RandomUsersContext.Provider>
     );
     expect(screen.getByText(/Profiles returned:/i)).toBeInTheDocument();
-    expect(screen.getByRole("textbox").value).toEqual(numProfiles);
+    expect(screen.getByTestId("quantity").value).toEqual(
+      numProfiles.toString()
+    );
   });
 });

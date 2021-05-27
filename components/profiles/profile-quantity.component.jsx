@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RandomUsersContext } from "../../pages/_app";
+import { RandomUsersContext } from "../../context/RandomUsers";
 
 const ProfileQuantity = () => {
   const { setnumProfiles, numProfiles } = useContext(RandomUsersContext);
@@ -9,13 +9,13 @@ const ProfileQuantity = () => {
       <span className="nav-right">
         Profiles returned:&nbsp;
         <input
-          id="search-input"
           type="number"
           onChange={(e) => setnumProfiles(e.target.value)}
           min="3"
           max="50"
           value={numProfiles}
           className="profile-quantity"
+          data-testid="quantity"
         />
       </span>
     </>

@@ -30,5 +30,6 @@ I decided to go with [`React Testing Library`](https://testing-library.com/docs/
 
 ### What would I do differently
 
-In the sort implementation, I decided to sort profiles by the first and last names using javascripts `localCompare` method for strings. This approach works but is rudimentary. Perhaps I would include a sort on birthdays and age ranges to provide more granularity to the sort.
-In the search implementation, I decided not to add debouncing as I set a hard limit on the size of the profiles state array to not be greater than 50. If the size of the profiles state array had been greater than that and was updated with an asynchronous request, then I would have to consider debouncing to limit the network calls and keep the application lean and fast.
+- In the sort implementation, I decided to sort profiles by the first and last names using javascripts `localCompare` method for strings. This approach works but is rudimentary. Perhaps I would include a sort on birthdays and age ranges to provide more granularity to the sort.
+- In the search implementation, I decided not to add debouncing as I set a hard limit on the size of the profiles state array to not be greater than 50. If the size of the profiles state array had been greater than that and was updated with an asynchronous request, then I would have to consider debouncing to limit the network calls and keep the application lean and fast.
+- I would also increase the test coverage of the application, particularly adding tests for the search & sort features. I would also introduce end-to-end tests with Cypress to test a key user workflow.
