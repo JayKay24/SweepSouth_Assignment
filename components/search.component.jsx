@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RandomUsersContext } from "../pages/_app";
+import { RandomUsersContext } from "../context/RandomUsers";
 
 const Search = () => {
   const { onSearch } = useContext(RandomUsersContext);
@@ -20,4 +20,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export { Search };

@@ -1,14 +1,12 @@
-import { useReducer, useEffect, useState, createContext } from "react";
+import { useReducer, useEffect, useState } from "react";
 import Router from "next/router";
 
 import { ActionNames } from "../reducers/actions";
 import { profilesReducer } from "../reducers/reducers";
+import { RandomUsersContext } from "../context/RandomUsers";
 
-import AppContainer from "../components/containers/App.container";
-import NavBar from "../components/navigation.component";
-import "bootstrap/dist/css/bootstrap.css";
-
-export const RandomUsersContext = createContext();
+import { AppContainer } from "../components/containers/App.container";
+import { NavBar } from "../components/navigation.component";
 
 const App = ({ Component, pageProps }) => {
   const [profiles, dispatchProfiles] = useReducer(profilesReducer, []);
@@ -79,6 +77,9 @@ const App = ({ Component, pageProps }) => {
     >
       <AppContainer>
         <NavBar />
+        <div className="title">
+          <h1>Random Users</h1>
+        </div>
         <hr />
         <br />
         <div className="container">
