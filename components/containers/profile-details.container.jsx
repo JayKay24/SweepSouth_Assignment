@@ -15,6 +15,12 @@ const ProfileDetailsContainer = styled.div`
       overflow-x: auto;
     }
   }
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export { ProfileDetailsContainer };
