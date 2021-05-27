@@ -15,6 +15,7 @@ const ProfileQuantity = () => {
           min="3"
           max="50"
           value={numProfiles}
+          className="profile-quantity"
         />
       </span>
     </>

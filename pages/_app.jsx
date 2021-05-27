@@ -6,7 +6,6 @@ import { profilesReducer } from "../reducers/reducers";
 
 import AppContainer from "../components/containers/App.container";
 import NavBar from "../components/navigation.component";
-import "bootstrap/dist/css/bootstrap.css";
 
 export const RandomUsersContext = createContext();
 
@@ -79,6 +78,9 @@ const App = ({ Component, pageProps }) => {
     >
       <AppContainer>
         <NavBar />
+        <div className="title">
+          <h1>Random Users</h1>
+        </div>
         <hr />
         <br />
         <div className="container">

@@ -20,11 +20,9 @@
   "homepage": "https://github.com/JayKay24/SweepSouth_Assignment#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "bootstrap": "^4.4.1",
     "next": "^10.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-js-pagination": "^3.0.3",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
@@ -34,6 +32,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "babel-jest": "^26.6.3",
+    "babel-plugin-styled-components": "^1.12.0",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^26.6.3",
     "jest-dom": "^4.0.0",

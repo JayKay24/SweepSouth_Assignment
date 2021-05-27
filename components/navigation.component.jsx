@@ -6,9 +6,9 @@ import SortBy from "./sortBy.component";
 
 const NavBar = () => {
   return (
-    <NavigationContainer className="navbar bg-light">
+    <NavigationContainer>
       <Link href="/">
-        <a className="home-link navbar-brand">Home</a>
+        <a className="home-link active">Home</a>
       </Link>
       <ProfileQuantity />
       <SortBy />
