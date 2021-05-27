@@ -13,4 +13,4 @@ const AppContainer = styled.div`
   }
 `;
 
-export default AppContainer;
+export { AppContainer };

@@ -44,4 +44,4 @@ const NavigationContainer = styled.nav`
   }
 `;
 
-export default NavigationContainer;
+export { NavigationContainer };

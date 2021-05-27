@@ -22,4 +22,4 @@ const ProfileQuantity = () => {
   );
 };
 
-export default ProfileQuantity;
+export { ProfileQuantity };

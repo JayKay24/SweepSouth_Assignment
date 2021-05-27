@@ -1,3 +1,5 @@
+[Tests](https://github.com/JayKay24/SweepSouth_Assignment/actions/workflows/tests-sweepsouth.yaml/badge.svg)
+
 # SweepSouth_Assignment
 
 A simple Next.js application that consumes an API

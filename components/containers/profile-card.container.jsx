@@ -25,4 +25,4 @@ const ProfileCardContainer = styled.div`
   }
 `;
 
-export default ProfileCardContainer;
+export { ProfileCardContainer };

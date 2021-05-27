@@ -1,8 +1,8 @@
 import { useContext } from "react";
 
-import ProfilesContainer from "../components/containers/profiles.container";
-import ProfileCard from "../components/profiles/profile-card.component";
-import { RandomUsersContext } from "./_app";
+import { ProfilesContainer } from "../components/containers/profiles.container";
+import { ProfileCard } from "../components/profiles/profile-card.component";
+import { RandomUsersContext } from "../context/RandomUsers";
 
 const LandingPage = () => {
   const { profiles, isLoading } = useContext(RandomUsersContext);

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
 import { ActionNames } from "../reducers/actions";
-import { RandomUsersContext } from "../pages/_app";
+import { RandomUsersContext } from "../context/RandomUsers";
 
 const SortBy = () => {
   const { dispatchProfiles } = useContext(RandomUsersContext);
@@ -27,4 +27,4 @@ const SortBy = () => {
   );
 };
 
-export default SortBy;
+export { SortBy };

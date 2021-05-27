@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Router from "next/router";
-import ProfileCardContainer from "../containers/profile-card.container";
-import { RandomUsersContext } from "../../pages/_app";
+import { ProfileCardContainer } from "../containers/profile-card.container";
+import { RandomUsersContext } from "../../context/RandomUsers";
 
 const ProfileCard = ({ profile }) => {
   const {
@@ -33,4 +33,4 @@ const ProfileCard = ({ profile }) => {
   );
 };
 
-export default ProfileCard;
+export { ProfileCard };

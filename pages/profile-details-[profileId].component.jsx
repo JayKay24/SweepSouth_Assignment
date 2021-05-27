@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { RandomUsersContext } from "../pages/_app";
-import ProfileDetailsContainer from "../components/containers/profile-details.container";
+import { RandomUsersContext } from "../context/RandomUsers";
+import { ProfileDetailsContainer } from "../components/containers/profile-details.container";
 
 const ProfileDetails = () => {
   const { selectedProfile } = useContext(RandomUsersContext);

@@ -17,4 +17,4 @@ const ProfileDetailsContainer = styled.div`
   }
 `;
 
-export default ProfileDetailsContainer;
+export { ProfileDetailsContainer };

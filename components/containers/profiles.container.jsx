@@ -12,4 +12,4 @@ const ProfilesContainer = styled.div`
   }
 `;
 
-export default ProfilesContainer;
+export { ProfilesContainer };

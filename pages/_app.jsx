@@ -1,13 +1,12 @@
-import { useReducer, useEffect, useState, createContext } from "react";
+import { useReducer, useEffect, useState } from "react";
 import Router from "next/router";
 
 import { ActionNames } from "../reducers/actions";
 import { profilesReducer } from "../reducers/reducers";
+import { RandomUsersContext } from "../context/RandomUsers";
 
-import AppContainer from "../components/containers/App.container";
-import NavBar from "../components/navigation.component";
-
-export const RandomUsersContext = createContext();
+import { AppContainer } from "../components/containers/App.container";
+import { NavBar } from "../components/navigation.component";
 
 const App = ({ Component, pageProps }) => {
   const [profiles, dispatchProfiles] = useReducer(profilesReducer, []);
