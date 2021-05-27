@@ -4,13 +4,23 @@
 
 A simple Next.js application that consumes an API
 
+## Screenshots
+
+![Desktop](/screenshots/Screenshot%202021-05-27%20at%2015.39.52.png)
+![Mobile](/screenshots/Screenshot%202021-05-27%20at%2015.40.25.png)
+
 ## Running the Application
 
 - Download and install [docker](https://www.docker.com/)
+- Clone this repository to your local machine and `cd` into it
+- Make the `common_operations.sh` script executable
 - Source the shell script to make the `buildAndRunImage` function available
 - Call the `buildAndRunImage` function
 
 ```
+$ git clone git@github.com:JayKay24/SweepSouth_Assignment.git
+$ cd SweepSouth_Assignment
+$ chmod +x common_operations.sh
 $ . ./common_operations.sh
 $ buildAndRunImage
 ```
@@ -34,4 +44,5 @@ I decided to go with [`React Testing Library`](https://testing-library.com/docs/
 - In the sort implementation, I decided to sort profiles by the first and last names using javascripts `localCompare` method for strings. This approach works but is rudimentary. Perhaps I would include a sort on birthdays and age ranges to provide more granularity to the sort.
 - In the search implementation, I decided not to add debouncing as I set a hard limit on the size of the profiles state array to not be greater than 50. If the size of the profiles state array had been greater than that and was updated with an asynchronous request, then I would have to consider debouncing to limit the network calls and keep the application lean and fast.
 - I would also increase the test coverage of the application, particularly adding tests for the search & sort features. I would also introduce end-to-end tests with Cypress to test a key user workflow.
+
 * I would improve the responsiveness of the app for tablets, right now it looks good in desktop and mobile views.
